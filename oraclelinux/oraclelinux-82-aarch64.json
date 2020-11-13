@@ -2,23 +2,26 @@
   "builders": [
     {
       "boot_command": [
-        "<up><wait><tab><wait> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ol8-ks.cfg<enter><wait>"
+        "c<wait>",
+        "linux /images/pxeboot/vmlinuz inst.stage2=hd:LABEL=OL-8-2-0-BaseOS-aarch64 ro",
+        "inst.text biosdevname=0 net.ifnames=0 ",
+        "ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ol8-ks.cfg<enter>",
+        "initrd /images/pxeboot/initrd.img<enter>",
+        "boot<enter><wait>"
       ],
       "accelerator": "kvm",
-      "boot_wait": "40s",
+      "boot_wait": "10s",
       "disk_interface": "virtio-scsi",
-      "disk_size": "2048",
-      "format": "qcow2",
+      "disk_size": "4096",
       "headless": true,
-      "http_directory": "docroot",
+      "http_directory": "http",
       "iso_checksum": "sha256:7024d4df2304e44c3930e2e75eb5af7c58f1e6cecef3ccecfc76d512abc24961",
       "iso_url": "http://mirrors.kernel.org/oracle/OL8/u2/aarch64/OracleLinux-R8-U2-aarch64-dvd.iso",
-      "machine": "virt"
-      "output_directory": "oraclelinux-r8u2-aarch64",
+      "output_directory": "packer-oraclelinux-r8u2-aarch64-openstack",
       "qemuargs": [
         [ "-m", "2048M" ],
         [ "-cpu", "host" ],
-        [ "-smp", "16,sockets=16,cores=1,threads=1" ],
+        [ "-machine", "virt,gic-version=max,accel=kvm" ],
         [ "-boot", "strict=on" ],
         [ "-bios", "/usr/share/AAVMF/AAVMF_CODE.fd" ],
         [ "-monitor", "none" ]
@@ -30,7 +33,8 @@
       "ssh_timeout": "1200s",
       "ssh_username": "root",
       "type": "qemu",
-      "vm_name": "oraclelinux-r8u2-aarch64"
+      "vm_name": "oraclelinux-r8u2-aarch64",
+      "vnc_bind_address": "0.0.0.0"
     }
   ],
   "provisioners": [
