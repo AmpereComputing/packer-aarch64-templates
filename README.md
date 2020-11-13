@@ -6,11 +6,13 @@
 
 Packer Templates for creating cloudimages for OpenStack.
 
-## Assets
+## OracleLinux
 
 * [oraclelinux/README.md](oraclelinux/README.md)
 * [oraclelinux/build.sh](oraclelinux/build.sh)
 * [oraclelinux/oraclelinux-82-aarch64.json](oraclelinux/oraclelinux-82-aarch64.json)
 * [oraclelinux/http/ol8-ks.cfg](oraclelinux/http/ol8-ks.cfg)
+
+## License
+
 * [LICENSE](LICENSE)
-* [README.md](README.md)
