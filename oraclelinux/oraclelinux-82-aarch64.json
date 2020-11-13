@@ -23,6 +23,7 @@
         [ "-cpu", "host" ],
         [ "-machine", "virt,gic-version=max,accel=kvm" ],
         [ "-boot", "strict=on" ],
+        [ "-bios", "/usr/share/AAVMF/AAVMF_CODE.fd" ],
         [ "-monitor", "none" ]
       ],
       "qemu_binary": "qemu-system-aarch64",
