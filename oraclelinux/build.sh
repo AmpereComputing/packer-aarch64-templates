@@ -7,5 +7,5 @@ echo "Build oraclelinux-82-aarch64.json"
 packer build -on-error=abort -color=false -force oraclelinux-82-aarch64.json
 
 echo "convert to qcow2"
-qemu-img convert -c -O qcow2 ./oraclelinux-r8u2-aarch64 ./oraclelinux-r8u2-aarch64.qcow2
+qemu-img convert -c -O qcow2 oraclelinux-r8u2-aarch64/oraclelinux-r8u2-aarch64 oraclelinux-r8u2-aarch64.qcow2
 
