@@ -8,7 +8,7 @@ Packer template for OracleLinux 8.2 aarch64
 
 Download the git sources
 
-``
+```
 git clone https://github.com/AmpereComputing/packer-aarch64-template
 ```
 Change into the oraclelinux directory within the project directory.
