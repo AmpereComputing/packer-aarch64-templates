@@ -17,7 +17,7 @@
       "http_directory": "http",
       "iso_checksum": "sha256:7024d4df2304e44c3930e2e75eb5af7c58f1e6cecef3ccecfc76d512abc24961",
       "iso_url": "http://mirrors.kernel.org/oracle/OL8/u2/aarch64/OracleLinux-R8-U2-aarch64-dvd.iso",
-      "output_directory": "oraclelinux-r8u2-aarch64",
+      "output_directory": "packer-oraclelinux-r8u2-aarch64",
       "qemuargs": [
         [ "-m", "2048M" ],
         [ "-cpu", "host" ],
