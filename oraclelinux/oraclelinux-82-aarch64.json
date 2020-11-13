@@ -1,0 +1,51 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "<up><wait><tab><wait> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ol8-ks.cfg<enter><wait>"
+      ],
+      "accelerator": "kvm",
+      "boot_wait": "40s",
+      "disk_interface": "virtio-scsi",
+      "disk_size": "2048",
+      "format": "qcow2",
+      "headless": true,
+      "http_directory": "docroot",
+      "iso_checksum": "sha256:7024d4df2304e44c3930e2e75eb5af7c58f1e6cecef3ccecfc76d512abc24961",
+      "iso_url": "http://mirrors.kernel.org/oracle/OL8/u2/aarch64/OracleLinux-R8-U2-aarch64-dvd.iso",
+      "machine": "virt"
+      "output_directory": "oraclelinux-r8u2-aarch64",
+      "qemuargs": [
+        [ "-m", "2048M" ],
+        [ "-cpu", "host" ],
+        [ "-smp", "16,sockets=16,cores=1,threads=1" ],
+        [ "-boot", "strict=on" ],
+        [ "-bios", "/usr/share/AAVMF/AAVMF_CODE.fd" ],
+        [ "-monitor", "none" ]
+      ],
+      "qemu_binary": "qemu-system-aarch64",
+      "shutdown_command": "shutdown -P now",
+      "ssh_password": "oraclelinux",
+      "ssh_port": 22,
+      "ssh_timeout": "1200s",
+      "ssh_username": "root",
+      "type": "qemu",
+      "vm_name": "oraclelinux-r8u2-aarch64"
+    }
+  ],
+  "provisioners": [
+    {
+      "inline": [
+        "yum install -y qemu-guest-agent",
+        "mkdir /etc/cloud",
+        "touch /etc/cloud/cloud-init.disabled",
+        "yum install -y cloud-init",
+        "rm /etc/cloud/cloud-init.disabled",
+        "yum clean all"
+      ],
+      "pause_before": "5s",
+      "type": "shell"
+    }
+  ]
+}
+
