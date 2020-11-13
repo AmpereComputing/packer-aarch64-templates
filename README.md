@@ -6,12 +6,11 @@
 
 Packer Templates for creating cloudimages for OpenStack.
 
-## OracleLinux
+## Assets
 
-To create a packer image for use with openstack
-
-## References
-
-* [OSUOSL Packer Template for Centos8 aarch64](https://github.com/osuosl/packer-templates/blob/master/centos-8-aarch64-openstack.json)
-* [Oracle Linux image tools](https://github.com/oracle/ol-sample-scripts/tree/master/oracle-linux-image-tools/)
-* [Building (Small) Oracle Linux Images For The Cloud](https://blogs.oracle.com/linux/building-small-oracle-linux-images-for-the-cloud)
+* [oraclelinux/README.md](oraclelinux/README.md)
+* [oraclelinux/build.sh](oraclelinux/build.sh)
+* [oraclelinux/oraclelinux-82-aarch64.json](oraclelinux/oraclelinux-82-aarch64.json)
+* [oraclelinux/http/ol8-ks.cfg](oraclelinux/http/ol8-ks.cfg)
+* [LICENSE](LICENSE)
+* [README.md](README.md)
