@@ -2,7 +2,7 @@
 
 # packer-aarch64-templates/oraclelinux
 
-Packer template for OracleLinux 8.2 aarch64
+Packer templates for OracleLinux AARCH64
 
 ## Building an Oracle Linux image
 
@@ -17,10 +17,16 @@ Change into the oraclelinux directory within the project directory.
 cd packer-aarch64-templates/oraclelinux
 ```
 
-Execute the included script.
+Execute the included script to build OL8.2.
 
 ```
-./build.sh
+./build_ol82.sh
+```
+
+Execute the included script to build OL8.3.
+
+```
+./build_ol83.sh
 ```
 
 ## References

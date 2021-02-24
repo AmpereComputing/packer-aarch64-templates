@@ -8,10 +8,15 @@ Packer Templates for creating cloudimages for OpenStack.
 
 ## OracleLinux
 
+The following files are included for building OracleLinux Cloudimages for OpenStack
+
 * [oraclelinux/README.md](oraclelinux/README.md)
-* [oraclelinux/build.sh](oraclelinux/build.sh)
+* [oraclelinux/build_ol82.sh](oraclelinux/build_ol82.sh)
+* [oraclelinux/build_ol83.sh](oraclelinux/build_ol83.sh)
 * [oraclelinux/oraclelinux-82-aarch64.json](oraclelinux/oraclelinux-82-aarch64.json)
-* [oraclelinux/http/ol8-ks.cfg](oraclelinux/http/ol8-ks.cfg)
+* [oraclelinux/oraclelinux-83-aarch64.json](oraclelinux/oraclelinux-83-aarch64.json)
+* [oraclelinux/http/ol82-ks.cfg](oraclelinux/http/ol82-ks.cfg)
+* [oraclelinux/http/ol83-ks.cfg](oraclelinux/http/ol83-ks.cfg)
 
 ## License
 
