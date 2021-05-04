@@ -3,9 +3,9 @@
     {
       "boot_command": [
         "c<wait>",
-        "linux /images/pxeboot/vmlinuz inst.stage2=hd:LABEL=OL-8-3-0-BaseOS-aarch64 ro",
+        "linux /images/pxeboot/vmlinuz inst.stage2=hd:LABEL=Rocky-8-3-aarch64-dvd ro",
         "inst.text biosdevname=0 net.ifnames=0 ",
-        "ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/oracle-ol8-ks.cfg<enter>",
+        "ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/rocky84rc-ks.cfg<enter>",
         "initrd /images/pxeboot/initrd.img<enter>",
         "boot<enter><wait>"
       ],
@@ -16,8 +16,8 @@
       "headless": true,
       "http_directory": "http",
       "iso_checksum": "sha256:b5b4a23bbe00738ae88545d7d4a7687f4008289981cb8c902f6be809db9bf026",
-      "iso_url": "http://mirrors.kernel.org/oracle/OL8/u3/aarch64/OracleLinux-R8-U3-aarch64-dvd.iso",
-      "output_directory": "packer-oraclelinux-r8u3-aarch64",
+      "iso_url": "https://download.rockylinux.org/pub/rocky/8.3/isos/aarch64/Rocky-8.3-aarch64-dvd1.iso",
+      "output_directory": "packer-rockylinux-84rc-aarch64",
       "qemuargs": [
         [ "-m", "2048M" ],
         [ "-cpu", "host" ],
@@ -28,12 +28,12 @@
       ],
       "qemu_binary": "qemu-system-aarch64",
       "shutdown_command": "shutdown -P now",
-      "ssh_password": "oraclelinux",
+      "ssh_password": "rockylinux",
       "ssh_port": 22,
       "ssh_timeout": "1200s",
       "ssh_username": "root",
       "type": "qemu",
-      "vm_name": "oraclelinux-r8u3-aarch64",
+      "vm_name": "rockylinux-84rc-aarch64",
       "vnc_bind_address": "0.0.0.0"
     }
   ],
