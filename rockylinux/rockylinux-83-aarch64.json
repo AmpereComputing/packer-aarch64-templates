@@ -3,9 +3,9 @@
     {
       "boot_command": [
         "c<wait>",
-        "linux /images/pxeboot/vmlinuz inst.stage2=hd:LABEL=Rocky-8-3-aarch64-dvd ro",
+        "linux /images/pxeboot/vmlinuz inst.stage2=hd:LABEL=RL83 ro",
         "inst.text biosdevname=0 net.ifnames=0 ",
-        "ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/rocky84rc-ks.cfg<enter>",
+        "ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/rocky83-ks.cfg<enter>",
         "initrd /images/pxeboot/initrd.img<enter>",
         "boot<enter><wait>"
       ],
@@ -15,9 +15,9 @@
       "disk_size": "4096",
       "headless": true,
       "http_directory": "http",
-      "iso_checksum": "sha256:b5b4a23bbe00738ae88545d7d4a7687f4008289981cb8c902f6be809db9bf026",
+      "iso_checksum": "sha256:47671465d7fc037ff6aff965a1ceb2249cd223affc2db3323a7a2e08e9a2c249",
       "iso_url": "https://download.rockylinux.org/pub/rocky/8.3/isos/aarch64/Rocky-8.3-aarch64-dvd1.iso",
-      "output_directory": "packer-rockylinux-84rc-aarch64",
+      "output_directory": "packer-rockylinux-83-aarch64",
       "qemuargs": [
         [ "-m", "2048M" ],
         [ "-cpu", "host" ],
@@ -33,7 +33,7 @@
       "ssh_timeout": "1200s",
       "ssh_username": "root",
       "type": "qemu",
-      "vm_name": "rockylinux-84rc-aarch64",
+      "vm_name": "rockylinux-83-aarch64",
       "vnc_bind_address": "0.0.0.0"
     }
   ],
