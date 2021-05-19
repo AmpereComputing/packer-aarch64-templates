@@ -45,7 +45,10 @@
         "touch /etc/cloud/cloud-init.disabled",
         "yum install -y cloud-init",
         "rm /etc/cloud/cloud-init.disabled",
-        "yum clean all"
+        "yum clean all",
+        "modprobe nvme",
+        "echo 'add_drivers+=\" nvme \"' > /etc/dracut.conf.d/nvme.conf",
+        "dracut -f"
       ],
       "pause_before": "5s",
       "type": "shell"
