@@ -1,32 +1,26 @@
 ![Ampere Computing](https://avatars2.githubusercontent.com/u/34519842?s=400&u=1d29afaac44f477cbb0226139ec83f73faefe154&v=4)
 
-# packer-aarch64-templates/oraclelinux
+# packer-aarch64-templates/rockylinux
 
-Packer templates for OracleLinux AARCH64
+Packer templates for RockyLinux AARCH64
 
-## Building an Oracle Linux image
+## Building an Rocky Linux image
 
 Download the git sources
 
 ```
 git clone https://github.com/AmpereComputing/packer-aarch64-template
 ```
-Change into the oraclelinux directory within the project directory.
+Change into the rockylinux directory within the project directory.
 
 ```
-cd packer-aarch64-templates/oraclelinux
+cd packer-aarch64-templates/rockylinux
 ```
 
-Execute the included script to build OL8.2.
+Execute the included script to build RL8.3.
 
 ```
-./build_ol82.sh
-```
-
-Execute the included script to build OL8.3.
-
-```
-./build_ol83.sh
+./build_rl83.sh
 ```
 
 ## References
