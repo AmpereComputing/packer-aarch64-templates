@@ -3,7 +3,7 @@
     {
       "boot_command": [
         "c<wait>",
-        "linux /images/pxeboot/vmlinuz inst.stage2=hd:LABEL=RL83 ro",
+        "linux /images/pxeboot/vmlinuz inst.stage2=hd:LABEL=Rocky-8-3-aarch64-dvd ro",
         "inst.text biosdevname=0 net.ifnames=0 ",
         "ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/rocky83-ks.cfg<enter>",
         "initrd /images/pxeboot/initrd.img<enter>",
