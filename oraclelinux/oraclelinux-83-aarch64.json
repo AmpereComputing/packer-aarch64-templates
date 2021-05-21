@@ -5,7 +5,7 @@
         "c<wait>",
         "linux /images/pxeboot/vmlinuz inst.stage2=hd:LABEL=OL-8-3-0-BaseOS-aarch64 ro",
         "inst.text biosdevname=0 net.ifnames=0 ",
-        "ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/oracle-ol8-ks.cfg<enter>",
+        "ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ol83-ks.cfg<enter>",
         "initrd /images/pxeboot/initrd.img<enter>",
         "boot<enter><wait>"
       ],
@@ -48,7 +48,8 @@
         "yum clean all",
         "modprobe nvme",
         "echo 'add_drivers+=\" nvme \"' > /etc/dracut.conf.d/nvme.conf",
-        "dracut -f"
+        "dracut -f",
+        "passwd -d root"
       ],
       "pause_before": "5s",
       "type": "shell"
