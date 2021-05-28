@@ -1,0 +1,57 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "c<wait>",
+        "linux /images/pxeboot/vmlinuz inst.stage2=hd:LABEL=AlmaLinux-8-4-beta-1-aarch64-dvd ro",
+        "inst.text biosdevname=0 net.ifnames=0 ",
+        "ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/alma84-ks.cfg<enter>",
+        "initrd /images/pxeboot/initrd.img<enter>",
+        "boot<enter><wait>"
+      ],
+      "accelerator": "kvm",
+      "boot_wait": "10s",
+      "disk_interface": "virtio-scsi",
+      "disk_size": "4096",
+      "headless": true,
+      "http_directory": "http",
+      "iso_checksum": "sha256:7a03302a70538a83115723275344956e73711537ff1a0ab8dfe66d6102ad4d9d",
+      "iso_url": "http://mirror.vtti.vt.edu/almalinux/8.4-beta/isos/aarch64/AlmaLinux-8.4-beta-1-aarch64-dvd.iso",
+      "output_directory": "packer-almalinux-84-aarch64",
+      "qemuargs": [
+        [ "-m", "2048M" ],
+        [ "-cpu", "host" ],
+        [ "-machine", "virt,gic-version=max,accel=kvm" ],
+        [ "-boot", "strict=on" ],
+        [ "-bios", "/usr/share/AAVMF/AAVMF_CODE.fd" ],
+        [ "-monitor", "none" ]
+      ],
+      "qemu_binary": "qemu-system-aarch64",
+      "shutdown_command": "shutdown -P now",
+      "ssh_password": "almalinux",
+      "ssh_port": 22,
+      "ssh_timeout": "1200s",
+      "ssh_username": "root",
+      "type": "qemu",
+      "vm_name": "almalinux-84-aarch64",
+      "vnc_bind_address": "0.0.0.0"
+    }
+  ],
+  "provisioners": [
+    {
+      "inline": [
+        "yum install -y qemu-guest-agent",
+        "mkdir /etc/cloud",
+        "touch /etc/cloud/cloud-init.disabled",
+        "yum install -y cloud-init",
+        "rm /etc/cloud/cloud-init.disabled",
+        "yum clean all",
+        "modprobe nvme",
+        "echo 'add_drivers+=\" nvme \"' > /etc/dracut.conf.d/nvme.conf",
+        "dracut -f"
+      ],
+      "pause_before": "5s",
+      "type": "shell"
+    }
+  ]
+}
